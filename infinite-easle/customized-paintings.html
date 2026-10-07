@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customized Paintings | Infinite Easle</title>
+<meta name="description" content="Tell us your idea and we will paint it on canvas. Order a customized hand-painted piece from Infinite Easle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Rubik:wght@400;500;600;700&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page-cat="customized-paintings">
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></a>
+    <nav class="cat-nav" aria-label="Collections">
+      <a href="logos-branding.html" data-c="logos-branding" data-nav-cat="logos-branding">Logos</a>
+      <a href="cartoon-anime.html" data-c="cartoon-anime" data-nav-cat="cartoon-anime">Cartoon &amp; Anime</a>
+      <a href="home-decor.html" data-c="home-decor" data-nav-cat="home-decor">Home Decor</a>
+      <a href="movies-series-sitcoms.html" data-c="movies-series-sitcoms" data-nav-cat="movies-series-sitcoms">Movies &amp; Series</a>
+      <a href="customized-paintings.html" data-c="customized-paintings" data-nav-cat="customized-paintings">Custom Paintings</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cat-hero" data-c="customized-paintings">
+    <div class="wrap cat-hero-row">
+      <div class="cat-hero-copy">
+        <a class="back" href="index.html">← Home</a>
+        <h1>Customized Paintings</h1>
+        <p class="lede">Have an idea in mind? Tell us what you'd like and we'll paint it on canvas, made just for you.</p>
+      </div>
+      <a class="btn" href="#request">Request a painting</a>
+    </div>
+  </section>
+
+  <section class="collection">
+    <div class="wrap">
+      <div class="toolbar">
+        <span class="showing" data-showing></span>
+        <div class="tools">
+          <label class="sort" for="sort">Sort
+            <select id="sort">
+              <option value="new">Newest</option>
+              <option value="popular">Most sold</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </label>
+          <label class="toggle" for="instock"><input type="checkbox" id="instock"><span>Hide sold out</span></label>
+        </div>
+      </div>
+      <div class="grid" data-grid="customized-paintings"><div class="card skeleton-card"><div class="skeleton sq"></div></div><div class="card skeleton-card"><div class="skeleton sq"></div></div><div class="card skeleton-card"><div class="skeleton sq"></div></div></div>
+    </div>
+  </section>
+
+  <section class="custom-how" aria-labelledby="h-how">
+    <div class="wrap">
+      <h2 id="h-how">How it works</h2>
+      <ol class="how-steps">
+        <li><span class="how-n">1</span><div><h3>Tell us your idea</h3><p>Describe the painting, the size you want and your budget in the form below.</p></div></li>
+        <li><span class="how-n">2</span><div><h3>We get in touch</h3><p>We call you to talk it through and agree the details, price and delivery time before we start.</p></div></li>
+        <li><span class="how-n">3</span><div><h3>We paint &amp; deliver</h3><p>Your painting is delivered to you. Delivery is ৳100 inside Dhaka and ৳150 outside Dhaka.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="custom-request" id="request" aria-labelledby="h-req">
+    <div class="wrap custom-grid">
+      <div class="custom-panel">
+        <h2 id="h-req">Request a customized painting</h2>
+        <form id="custom-form" class="order custom-form" novalidate>
+          <div class="fields">
+            <label>Your name<input name="name" autocomplete="name" maxlength="100"></label>
+            <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX"></label>
+            <label class="span2"><span>Email <span class="hint">Optional</span></span><input name="email" type="email" autocomplete="email" maxlength="200"></label>
+            <label class="span2">What should we paint?<textarea name="idea" rows="5" maxlength="3000" placeholder="Describe your idea: the subject, colours, mood, who it's for, or the occasion."></textarea></label>
+            <label><span>Canvas size <span class="hint">Optional</span></span><input name="size" maxlength="60" placeholder="For example: 12 × 16 in"></label>
+            <label><span>Your budget <span class="hint">Optional</span></span><input name="budget" maxlength="60" placeholder="For example: ৳3,000"></label>
+            <label class="trap" aria-hidden="true">Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <p class="hint ref-note">Have a reference photo? After sending your request, email it to <a data-contact-email></a>.</p>
+          <p class="form-error" id="custom-error" role="alert" hidden></p>
+          <button class="btn block" id="custom-btn" type="submit">Send my request</button>
+        </form>
+        <div class="custom-done" id="custom-done" role="status" hidden>
+          <div class="order-icon" aria-hidden="true"></div>
+          <h3>Request sent!</h3>
+          <p>Thank you. We'll call you on <b data-done-phone></b> to talk about the size, price and delivery time.</p>
+          <button type="button" class="btn ghost" id="custom-again">Send another request</button>
+        </div>
+      </div>
+
+      <aside class="custom-side" aria-label="Contact us directly">
+        <h3>Prefer to talk?</h3>
+        <p>Reach us directly and tell us about your idea.</p>
+        <ul class="contact-list">
+          <li><span>Call</span><a data-contact-phone></a></li>
+          <li><span>Email</span><a data-contact-email></a></li>
+        </ul>
+        <p class="foot-social side-social" data-social-box>
+          <a class="btn ghost sm" data-social="page" hidden>Message us on Facebook</a>
+          <a class="btn ghost sm" data-social="owner" hidden>Owner on Facebook</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <div><span class="logo"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></span><p data-tagline></p></div>
+    <nav class="foot-nav" aria-label="Collections">
+      <a href="logos-branding.html">Logos &amp; Branding Art</a>
+      <a href="cartoon-anime.html">Cartoon &amp; Anime Characters</a>
+      <a href="home-decor.html">Home Decor &amp; Wall Art</a>
+      <a href="movies-series-sitcoms.html">Movies, Series &amp; Sitcoms</a>
+      <a href="customized-paintings.html">Customized Paintings</a>
+    </nav>
+    <div class="foot-contact">
+      <p>Call <a data-contact-phone></a><br>Email <a data-contact-email></a></p>
+      <p class="foot-social" data-social-box>
+        <a data-social="page" hidden>Facebook</a>
+        <a data-social="owner" hidden>Owner on Facebook</a>
+      </p>
+    </div>
+    <p class="fine">© <span data-year></span> <span data-store-name></span> · <a href="admin.html">Admin</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/core.js"></script>
+<script>Store.initCustom(); Store.initCategory();</script>
+</body>
+</html>

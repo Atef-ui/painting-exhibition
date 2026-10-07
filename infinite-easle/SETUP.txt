@@ -1,0 +1,83 @@
+INFINITE EASLE: PAINTING STORE SETUP
+==================================
+
+This folder is a complete website. It is already connected to your Supabase
+project "painting-store", so the shop, orders and admin work as soon as it's online.
+
+PAGES
+  index.html            Home page: featured piece, the 4 collections, newest pieces
+  logos-branding.html   Logos & Branding Art collection
+  cartoon-anime.html    Cartoon & Anime Characters collection
+  home-decor.html       Home Decor & Wall Art collection
+  movies-series-sitcoms.html  Movies, Series & Sitcoms collection
+                        (each collection page can sort by price or most sold, and hide sold-out pieces)
+  customized-paintings.html  Customized Paintings: shows the customized paintings you have
+               added (choose the section "Customized Paintings" in the admin panel), and lets
+               customers describe the painting they want and send a request (it appears in
+               the admin panel and is emailed to you)
+  art.html     One artwork per page: photos, price, canvas size, stock, sold count,
+               the order form (Cash on Delivery, bKash or Nagad) and reviews underneath
+  pay.html     Payment page for bKash / Nagad orders: shows the number to pay and asks
+               for the Transaction ID
+  order.html   "Order successful" page with the order code
+  admin.html   Admin panel (sign in required)
+
+1. PUT IT ONLINE (NETLIFY)
+  - Unzip this file.
+  - Go to app.netlify.com, open "Sites", and drag the unzipped folder onto the page.
+  - Your shop is live at the link Netlify gives you (for example, infinite-easle.netlify.app).
+
+2. CHANGE THE SHOP NAME AND CONTACT DETAILS
+  Open js/config.js in Notepad and edit STORE_NAME, TAGLINE, CONTACT_PHONE and
+  CONTACT_EMAIL. Leave SUPABASE_URL and SUPABASE_KEY as they are. Re-upload the folder.
+  CONTACT_PHONE is the number shown in the footer, and it is also the number customers
+  send their bKash / Nagad payment to.
+
+  FACEBOOK LINKS (footer of every page)
+  In the same file, paste your links between the quotes:
+    FACEBOOK_PAGE_URL   the shop's Facebook page
+    OWNER_FACEBOOK_URL  the owner's Facebook profile
+  Example:  FACEBOOK_PAGE_URL: "https://www.facebook.com/your.page",
+  Links must start with https://. A link that is left empty is not shown on the site.
+
+3. ADMIN PANEL
+  - Open yoursite.netlify.app/admin.html (there's also an "Admin" link in the footer) and
+    sign in with the Supabase user listed in the "admins" table. Right now that is the
+    account you created in Supabase Authentication. Any other account is refused, even if
+    it can sign in.
+  - Custom requests tab: customized painting requests from the website, with the
+    customer's phone, size, budget and idea. Set each one to New, Contacted, Done or Declined.
+  - Artworks tab: add artworks (art name, section, price, canvas size, medium, photos,
+    stock), edit them, and change stock with the − and + buttons.
+  - Orders tab: every order with customer details, delivery area, and total including
+    delivery. Set the delivery status, mark Cash on Delivery orders as paid when the
+    cash arrives, or cancel an order (its stock is put back automatically).
+  - Reviews tab: delete unwanted reviews.
+  To add another admin: in Supabase, go to Authentication > Users > Add user, copy the new
+  user's ID, then add a row with that ID to the "admins" table.
+
+4. DELIVERY CHARGES AND STOCK (automatic)
+  - Inside Dhaka ৳100, outside Dhaka ৳150. The total is always worked out by the
+    database, so customers can't change prices.
+  - Stock goes down when a Cash on Delivery order is placed, or when a bKash/Nagad order is placed. The "sold" count goes up at the same time. Sold-out artworks can't be
+    ordered.
+
+5. BKASH / NAGAD PAYMENT AND ORDER EMAILS
+  How a customer pays online:
+    1. On the artwork page they fill in their details and choose bKash or Nagad.
+    2. They press "Continue to payment" and get the payment page (pay.html).
+    3. They send the total to the number in the footer (CONTACT_PHONE) and enter the
+       Transaction ID (TrxID) and the number they paid from.
+    4. The "Order successful" page opens and shows their order code.
+  - You check the payment in your bKash/Nagad app, then press "Payment received" on the
+    order in the admin panel. (This is not an automatic gateway: that needs a bKash or
+    Nagad merchant account.) The admin panel shows each order's Transaction ID.
+  - The same TrxID can't be used for two orders.
+  - Every new order and every customized painting request emails infinite.easel@gmail.com.
+    This needs one secret in Supabase (Edge Functions > Secrets):  RESEND_API_KEY
+    (free account at resend.com created with infinite.easel@gmail.com). Optional:
+    ADMIN_EMAIL to send to a different address (if ADMIN_EMAIL is set, it is used instead).
+
+6. YOUR EXISTING 6 PAINTINGS
+  They were placed in "Home Decor & Wall Art". Use Edit in the admin panel to move any of
+  them to another section or to upload real photos.

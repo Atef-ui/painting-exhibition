@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movies, Series &amp; Sitcoms | Infinite Easle</title>
+<meta name="description" content="Scenes and characters from your favourite movies, series and sitcoms, painted on canvas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Rubik:wght@400;500;600;700&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page-cat="movies-series-sitcoms">
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></a>
+    <nav class="cat-nav" aria-label="Collections">
+      <a href="logos-branding.html" data-c="logos-branding" data-nav-cat="logos-branding">Logos</a>
+      <a href="cartoon-anime.html" data-c="cartoon-anime" data-nav-cat="cartoon-anime">Cartoon &amp; Anime</a>
+      <a href="home-decor.html" data-c="home-decor" data-nav-cat="home-decor">Home Decor</a>
+      <a href="movies-series-sitcoms.html" data-c="movies-series-sitcoms" data-nav-cat="movies-series-sitcoms">Movies &amp; Series</a>
+      <a href="customized-paintings.html" data-c="customized-paintings" data-nav-cat="customized-paintings">Custom Paintings</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cat-hero" data-c="movies-series-sitcoms">
+    <div class="wrap cat-hero-row">
+      <div class="cat-hero-copy">
+        <a class="back" href="index.html">← All collections</a>
+        <h1>Movies, Series &amp; Sitcoms</h1>
+        <p class="lede">Scenes and characters from your favourite movies, series and sitcoms, painted on canvas.</p>
+      </div>
+      <span class="sticker yellow cat-count" data-count="movies-series-sitcoms"></span>
+    </div>
+  </section>
+
+  <section class="collection">
+    <div class="wrap">
+      <div class="toolbar">
+        <span class="showing" data-showing></span>
+        <div class="tools">
+          <label class="sort" for="sort">Sort
+            <select id="sort">
+              <option value="new">Newest</option>
+              <option value="popular">Most sold</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </label>
+          <label class="toggle" for="instock"><input type="checkbox" id="instock"><span>Hide sold out</span></label>
+        </div>
+      </div>
+      <div class="grid" data-grid="movies-series-sitcoms"><div class="card skeleton-card"><div class="skeleton sq"></div></div><div class="card skeleton-card"><div class="skeleton sq"></div></div><div class="card skeleton-card"><div class="skeleton sq"></div></div></div>
+    </div>
+  </section>
+
+  <section class="more-coll" aria-labelledby="h-more">
+    <div class="wrap">
+      <h2 id="h-more">More collections</h2>
+      <div class="more-links"><a class="more-link" href="logos-branding.html" data-c="logos-branding"><span>Logos &amp; Branding Art</span><em aria-hidden="true">→</em></a><a class="more-link" href="cartoon-anime.html" data-c="cartoon-anime"><span>Cartoon &amp; Anime Characters</span><em aria-hidden="true">→</em></a><a class="more-link" href="home-decor.html" data-c="home-decor"><span>Home Decor &amp; Wall Art</span><em aria-hidden="true">→</em></a></div>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="h-info">
+    <div class="wrap">
+      <h2 id="h-info">Delivery &amp; payment</h2>
+      <div class="info-grid">
+        <div class="box yellow"><h3>Cash on Delivery</h3><p>Pay the delivery person when your painting arrives. Available on every artwork.</p></div>
+        <div class="box blue"><h3>bKash or Nagad</h3><p>Choose bKash or Nagad, send the total to the number in the footer, then enter your Transaction ID to place the order.</p></div>
+        <div class="box pink"><h3>Delivery charge</h3><p class="fees"><span><b>৳100</b> Inside Dhaka</span><span><b>৳150</b> Outside Dhaka</span></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <div><span class="logo"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></span><p data-tagline></p></div>
+    <nav class="foot-nav" aria-label="Collections">
+      <a href="logos-branding.html">Logos &amp; Branding Art</a>
+      <a href="cartoon-anime.html">Cartoon &amp; Anime Characters</a>
+      <a href="home-decor.html">Home Decor &amp; Wall Art</a>
+      <a href="movies-series-sitcoms.html">Movies, Series &amp; Sitcoms</a>
+      <a href="customized-paintings.html">Customized Paintings</a>
+    </nav>
+    <div class="foot-contact">
+      <p>Call <a data-contact-phone></a><br>Email <a data-contact-email></a></p>
+      <p class="foot-social" data-social-box>
+        <a data-social="page" hidden>Facebook</a>
+        <a data-social="owner" hidden>Owner on Facebook</a>
+      </p>
+    </div>
+    <p class="fine">© <span data-year></span> <span data-store-name></span> · <a href="admin.html">Admin</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/core.js"></script>
+<script>Store.initCategory();</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artwork | Infinite Easle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Rubik:wght@400;500;600;700&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></a>
+    <nav class="cat-nav" aria-label="Collections">
+      <a href="logos-branding.html" data-c="logos-branding" data-nav-cat="logos-branding">Logos</a>
+      <a href="cartoon-anime.html" data-c="cartoon-anime" data-nav-cat="cartoon-anime">Cartoon &amp; Anime</a>
+      <a href="home-decor.html" data-c="home-decor" data-nav-cat="home-decor">Home Decor</a>
+      <a href="movies-series-sitcoms.html" data-c="movies-series-sitcoms" data-nav-cat="movies-series-sitcoms">Movies &amp; Series</a>
+      <a href="customized-paintings.html" data-c="customized-paintings" data-nav-cat="customized-paintings">Custom Paintings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap art-page">
+  <p id="art-loading" class="state-msg">Loading artwork…</p>
+  <div id="art-missing" class="missing" hidden>
+    <h1>Artwork not found</h1>
+    <p data-msg>This artwork may have been removed, or the link is incomplete.</p>
+    <a class="btn" href="index.html">See all artworks</a>
+  </div>
+
+  <div id="art-main" hidden>
+    <a class="back" href="index.html" data-cat-link>← Back to <span data-f="category-short"></span></a>
+    <div class="art-grid">
+      <div class="art-media">
+        <div class="art-frame" data-cat-id>
+          <img id="art-image" alt="">
+          <span class="sticker yellow st-sold" data-f="sold-label"></span>
+          <span class="sticker st-stock" data-stock-state><span data-f="stock"></span></span>
+        </div>
+        <div class="thumbs" id="art-thumbs" hidden></div>
+      </div>
+
+      <div class="art-info">
+        <span class="cat-pill" data-cat-id data-f="category"></span>
+        <h1 data-f="title"></h1>
+        <p class="artist" data-f="artist" data-hide-empty="artist"></p>
+        <div class="price-row"><span class="price-big" data-f="price"></span></div>
+        <div class="chips">
+          <span class="chip" data-hide-empty="size"><b>Canvas</b> <span data-f="size"></span></span>
+          <span class="chip" data-hide-empty="medium"><b>Medium</b> <span data-f="medium"></span></span>
+          <span class="chip"><b>In stock</b> <span data-f="stock-num"></span></span>
+          <span class="chip"><b>Sold</b> <span data-f="sold"></span></span>
+        </div>
+        <p class="desc" data-f="desc" data-hide-empty="desc"></p>
+        <p class="delivery-note">🚚 <span>Delivered within <b>5–7 business days</b> after your order is confirmed.</span></p>
+        <form id="order-form" class="order" novalidate hidden>
+  <h2 class="order-title">Order this piece</h2>
+  <fieldset class="qty-row">
+    <legend>Quantity</legend>
+    <div class="qty">
+      <button type="button" id="qty-minus" aria-label="One fewer">−</button>
+      <input id="qty" name="qty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity">
+      <button type="button" id="qty-plus" aria-label="One more">+</button>
+    </div>
+    <span class="hint">Up to <span data-f="max"></span> available</span>
+  </fieldset>
+  <fieldset>
+    <legend>Delivery area</legend>
+    <div class="choice-grid">
+      <label class="choice"><input type="radio" name="area" value="inside_dhaka"><span><strong>Inside Dhaka</strong><em>৳100 delivery</em></span></label>
+      <label class="choice"><input type="radio" name="area" value="outside_dhaka"><span><strong>Outside Dhaka</strong><em>৳150 delivery</em></span></label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Payment</legend>
+    <div class="choice-grid">
+      <label class="choice"><input type="radio" name="pay" value="cod" checked><span><strong>Cash on Delivery</strong><em>Pay when it arrives</em></span></label>
+      <label class="choice"><input type="radio" name="pay" value="bkash"><span><strong>bKash</strong><em>Online payment</em></span></label>
+      <label class="choice"><input type="radio" name="pay" value="nagad"><span><strong>Nagad</strong><em>Online payment</em></span></label>
+    </div>
+    <p class="pay-note" data-pay-note></p>
+    <p class="pay-flow" id="mpay" hidden>You chose <b data-mp="method"></b>. Fill in your details below and press <b>Continue to payment</b>. On the next page you'll see our number, send the total there and enter your Transaction ID (TrxID) to finish the order.</p>
+  </fieldset>
+  <fieldset>
+    <legend>Your details</legend>
+    <div class="fields">
+      <label>Full name<input name="name" autocomplete="name" maxlength="100"></label>
+      <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX"></label>
+      <label class="span2"><span>Email <span class="hint" data-email-hint>Optional</span></span><input name="email" type="email" autocomplete="email" maxlength="200"></label>
+      <label class="span2">Delivery address<textarea name="address" rows="2" autocomplete="street-address" maxlength="500" placeholder="House, road, area"></textarea></label>
+      <label class="span2">City or district<input name="city" autocomplete="address-level2" maxlength="80" placeholder="For example: Dhaka, Chattogram, Sylhet"></label>
+    </div>
+  </fieldset>
+  <dl class="sum">
+    <div><dt data-sum="qty"></dt><dd data-sum="sub"></dd></div>
+    <div><dt data-sum="del-label">Delivery</dt><dd data-sum="del"></dd></div>
+    <div class="sum-total"><dt>Total</dt><dd data-sum="total"></dd></div>
+  </dl>
+  <p class="form-error" id="order-error" role="alert" hidden></p>
+  <button class="btn block" id="order-btn" type="submit">Place order</button>
+  <p class="secure-note">Delivered within 5–7 business days. Questions? Call <a data-contact-phone></a>.</p>
+</form>
+<div id="soldout" class="soldout" hidden>
+  <strong>Sold out</strong>
+  <p>This piece has sold out. Call <a data-contact-phone></a> to ask about a commission in the same style.</p>
+</div>
+
+      </div>
+    </div>
+    <section class="reviews" aria-labelledby="h-rev">
+  <div class="rev-head">
+    <h2 id="h-rev">Reviews</h2>
+    <div class="rating-sum"><span class="rating-big" data-f="rating-avg">–</span><span data-rating-stars></span><span class="muted" data-f="rating-count"></span></div>
+  </div>
+  <div class="rev-grid">
+    <div id="reviews-list" class="review-list"></div>
+    <form id="review-form" class="review-form" novalidate>
+      <h3>Write a review</h3>
+      <fieldset class="star-field">
+        <legend>Your rating</legend>
+        <div class="star-input">
+          <input type="radio" id="r5" name="rating" value="5"><label for="r5"><span class="sr">5 stars</span>★</label>
+          <input type="radio" id="r4" name="rating" value="4"><label for="r4"><span class="sr">4 stars</span>★</label>
+          <input type="radio" id="r3" name="rating" value="3"><label for="r3"><span class="sr">3 stars</span>★</label>
+          <input type="radio" id="r2" name="rating" value="2"><label for="r2"><span class="sr">2 stars</span>★</label>
+          <input type="radio" id="r1" name="rating" value="1"><label for="r1"><span class="sr">1 star</span>★</label>
+        </div>
+      </fieldset>
+      <label>Your name<input name="reviewer_name" maxlength="60" autocomplete="name"></label>
+      <label>Your review<textarea name="comment" rows="4" maxlength="1000" placeholder="How does it look in person? How was delivery?"></textarea></label>
+      <p class="form-error" id="review-error" role="alert" hidden></p>
+      <p class="form-ok" id="review-msg" role="status" hidden></p>
+      <button class="btn ghost" type="submit">Post review</button>
+    </form>
+  </div>
+</section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <div><span class="logo"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></span><p data-tagline></p></div>
+    <nav class="foot-nav" aria-label="Collections">
+      <a href="logos-branding.html">Logos &amp; Branding Art</a>
+      <a href="cartoon-anime.html">Cartoon &amp; Anime Characters</a>
+      <a href="home-decor.html">Home Decor &amp; Wall Art</a>
+      <a href="movies-series-sitcoms.html">Movies, Series &amp; Sitcoms</a>
+      <a href="customized-paintings.html">Customized Paintings</a>
+    </nav>
+    <div class="foot-contact">
+      <p>Call <a data-contact-phone></a><br>Email <a data-contact-email></a></p>
+      <p class="foot-social" data-social-box>
+        <a data-social="page" hidden>Facebook</a>
+        <a data-social="owner" hidden>Owner on Facebook</a>
+      </p>
+    </div>
+    <p class="fine">© <span data-year></span> <span data-store-name></span> · <a href="admin.html">Admin</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/core.js"></script>
+<script>Store.initArt();</script>
+</body>
+</html>

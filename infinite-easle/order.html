@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your order | Infinite Easle</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Rubik:wght@400;500;600;700&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></a>
+    <nav class="cat-nav" aria-label="Collections">
+      <a href="logos-branding.html" data-c="logos-branding" data-nav-cat="logos-branding">Logos</a>
+      <a href="cartoon-anime.html" data-c="cartoon-anime" data-nav-cat="cartoon-anime">Cartoon &amp; Anime</a>
+      <a href="home-decor.html" data-c="home-decor" data-nav-cat="home-decor">Home Decor</a>
+      <a href="movies-series-sitcoms.html" data-c="movies-series-sitcoms" data-nav-cat="movies-series-sitcoms">Movies &amp; Series</a>
+      <a href="customized-paintings.html" data-c="customized-paintings" data-nav-cat="customized-paintings">Custom Paintings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap order-page">
+  <div id="order-box"><p class="state-msg">Loading your order…</p></div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <div><span class="logo"><span class="logo-mark" aria-hidden="true"></span><span data-store-name>Infinite Easle</span></span><p data-tagline></p></div>
+    <nav class="foot-nav" aria-label="Collections">
+      <a href="logos-branding.html">Logos &amp; Branding Art</a>
+      <a href="cartoon-anime.html">Cartoon &amp; Anime Characters</a>
+      <a href="home-decor.html">Home Decor &amp; Wall Art</a>
+      <a href="movies-series-sitcoms.html">Movies, Series &amp; Sitcoms</a>
+      <a href="customized-paintings.html">Customized Paintings</a>
+    </nav>
+    <div class="foot-contact">
+      <p>Call <a data-contact-phone></a><br>Email <a data-contact-email></a></p>
+      <p class="foot-social" data-social-box>
+        <a data-social="page" hidden>Facebook</a>
+        <a data-social="owner" hidden>Owner on Facebook</a>
+      </p>
+    </div>
+    <p class="fine">© <span data-year></span> <span data-store-name></span> · <a href="admin.html">Admin</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/core.js"></script>
+<script>Store.initOrder();</script>
+</body>
+</html>

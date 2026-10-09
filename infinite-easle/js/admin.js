@@ -114,13 +114,18 @@
   }
   async function deletePainting(p) {
     if (!confirm(`Delete "${p.title}"? Its reviews are deleted too. This can't be undone.`)) return;
-    const { count } = await sb.from("orders").select("id", { count: "exact", head: true }).eq("painting_id", p.id);
+    const { count } = await sb.from("orders").select("id", { count: "exact", head: true }).eq("painting_id", p.id).neq("status", "cancelled");
+    console.log("Orders count for painting", p.id, count);
     if (count) { toast(`"${p.title}" has ${count} order${count > 1 ? "s" : ""}, so it can't be deleted. Set its stock to 0 to stop selling it.`, true); return; }
     await sb.from("reviews").delete().eq("painting_id", p.id);
     const { error } = await sb.from("paintings").delete().eq("id", p.id);
     if (error) { toast("Couldn't delete: " + error.message, true); return; }
-    if (p.image_path) sb.storage.from("paintings").remove([p.image_path]).catch(() => {});
-    paintings = paintings.filter((x) => x.id !== p.id); renderPaintings(); toast("Artwork deleted");
+    paintings = paintings.filter((x) => x.id !== p.id); renderPaintings();
+    if (p.image_path) {
+      const { error: storageError } = await sb.storage.from("paintings").remove([p.image_path]);
+      if (storageError) { toast("Artwork deleted, but its Storage image couldn't be deleted: " + storageError.message, true); return; }
+      toast("Artwork and image deleted");
+    } else toast("Artwork deleted; no image_path is saved for its Storage image.", true);
   }
 
   // ---------- Add / edit form ----------
@@ -252,7 +257,7 @@
   $("#order-filter").addEventListener("change", renderOrders);
   $("#refresh-orders").addEventListener("click", () => { loadOrders(); loadPaintings(); toast("Orders refreshed"); });
   async function orderAction(id, action, el) {
-    if (action === "cancel" && !confirm("Cancel this order? If stock was taken for it, the stock is put back.")) return;
+    if (action === "cancel" && !confirm("Cancel this order? If stock was taken for it, the stock is put back.")){return;}
     if (el) el.disabled = true;
     const { data, error } = await sb.rpc("admin_update_order", { p_order: id, p_action: action });
     if (el) el.disabled = false;

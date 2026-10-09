@@ -1,9 +1,9 @@
 // ===== Store settings =====
 // Change these freely. The Supabase values are already filled in for your "painting-store" project.
 window.STORE_CONFIG = {
-  STORE_NAME: "Infinite Easle",
+  STORE_NAME: "Infinite Easel",
   TAGLINE: "Hand-painted art for walls, brands and fans",
-  CONTACT_PHONE: "01307088607",          // shown in the footer and on order pages. bKash/Nagad payments are also sent to this number
+  CONTACT_PHONE: "01628113665",          // shown in the footer and on order pages. bKash/Nagad payments are also sent to this number
   CONTACT_EMAIL: "infinite.easel@gmail.com",
 
   // ----- Facebook links (shown in the footer of every page) -----

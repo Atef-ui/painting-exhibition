@@ -1,4 +1,4 @@
-INFINITE EASLE: PAINTING STORE SETUP
+INFINITE EASEL: PAINTING STORE SETUP
 ==================================
 
 This folder is a complete website. It is already connected to your Supabase
@@ -25,7 +25,7 @@ PAGES
 1. PUT IT ONLINE (NETLIFY)
   - Unzip this file.
   - Go to app.netlify.com, open "Sites", and drag the unzipped folder onto the page.
-  - Your shop is live at the link Netlify gives you (for example, infinite-easle.netlify.app).
+  - Your shop is live at the link Netlify gives you (for example, infinite-easel.netlify.app).
 
 2. CHANGE THE SHOP NAME AND CONTACT DETAILS
   Open js/config.js in Notepad and edit STORE_NAME, TAGLINE, CONTACT_PHONE and

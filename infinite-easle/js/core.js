@@ -414,7 +414,7 @@
       const trx = form.elements.namedItem("trx").value.replace(/\s/g, "").toUpperCase();
       const sender = form.elements.namedItem("sender").value.replace(/[\s-]/g, "");
       const problem =
-        !/^[A-Z0-9]{6,20}$/.test(trx) ? "Enter the Transaction ID (TrxID) from your payment message: 6 to 20 letters and numbers, no spaces." :
+        !/^[A-Z0-9]{10}$/.test(trx) ? "Enter the Transaction ID (TrxID) from your payment message: Exactly 10 letters and numbers, no spaces." :
         !PHONE.test(sender) ? `Enter the ${mlabel()} number you paid from, like 01712345678.` : "";
       if (problem) { err.textContent = problem; err.hidden = false; err.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
       const btn = $("#pay-btn"), label = btn.textContent;
